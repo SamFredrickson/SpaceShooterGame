@@ -1,0 +1,47 @@
+C:\Users\Nate\Desktop\SpaceShooterGame\bin\Debug\SpaceShooterGame.exe.config
+C:\Users\Nate\Desktop\SpaceShooterGame\bin\Debug\SpaceShooterGame.exe
+C:\Users\Nate\Desktop\SpaceShooterGame\bin\Debug\SpaceShooterGame.pdb
+C:\Users\Nate\Desktop\SpaceShooterGame\obj\Debug\SpaceShooterGame.csprojResolveAssemblyReference.cache
+C:\Users\Nate\Desktop\SpaceShooterGame\obj\Debug\SpaceShooterGame.Form1.resources
+C:\Users\Nate\Desktop\SpaceShooterGame\obj\Debug\SpaceShooterGame.Properties.Resources.resources
+C:\Users\Nate\Desktop\SpaceShooterGame\obj\Debug\SpaceShooterGame.csproj.GenerateResource.Cache
+C:\Users\Nate\Desktop\SpaceShooterGame\obj\Debug\SpaceShooterGame.exe
+C:\Users\Nate\Desktop\SpaceShooterGame\obj\Debug\SpaceShooterGame.pdb
+F:\ЗАГРУЗКИ\Archives\SpaceShooterGame-master\bin\Debug\SpaceShooterGame.exe.config
+F:\ЗАГРУЗКИ\Archives\SpaceShooterGame-master\bin\Debug\SpaceShooterGame.exe
+F:\ЗАГРУЗКИ\Archives\SpaceShooterGame-master\bin\Debug\SpaceShooterGame.pdb
+F:\ЗАГРУЗКИ\Archives\SpaceShooterGame-master\obj\Debug\SpaceShooterGame.csprojAssemblyReference.cache
+F:\ЗАГРУЗКИ\Archives\SpaceShooterGame-master\obj\Debug\SpaceShooterGame.Form1.resources
+F:\ЗАГРУЗКИ\Archives\SpaceShooterGame-master\obj\Debug\SpaceShooterGame.Properties.Resources.resources
+F:\ЗАГРУЗКИ\Archives\SpaceShooterGame-master\obj\Debug\SpaceShooterGame.csproj.GenerateResource.cache
+F:\ЗАГРУЗКИ\Archives\SpaceShooterGame-master\obj\Debug\SpaceShooterGame.csproj.CoreCompileInputs.cache
+F:\ЗАГРУЗКИ\Archives\SpaceShooterGame-master\obj\Debug\SpaceShooterGame.exe
+F:\ЗАГРУЗКИ\Archives\SpaceShooterGame-master\obj\Debug\SpaceShooterGame.pdb
+F:\visual studio\SpaceShooterGame-master\bin\Debug\SpaceShooterGame.exe.config
+F:\visual studio\SpaceShooterGame-master\bin\Debug\SpaceShooterGame.exe
+F:\visual studio\SpaceShooterGame-master\bin\Debug\SpaceShooterGame.pdb
+F:\visual studio\SpaceShooterGame-master\obj\Debug\SpaceShooterGame.csprojAssemblyReference.cache
+F:\visual studio\SpaceShooterGame-master\obj\Debug\SpaceShooterGame.Properties.Resources.resources
+F:\visual studio\SpaceShooterGame-master\obj\Debug\SpaceShooterGame.csproj.GenerateResource.cache
+F:\visual studio\SpaceShooterGame-master\obj\Debug\SpaceShooterGame.csproj.CoreCompileInputs.cache
+F:\visual studio\SpaceShooterGame-master\obj\Debug\SpaceShooterGame.exe
+F:\visual studio\SpaceShooterGame-master\obj\Debug\SpaceShooterGame.pdb
+F:\visual studio\SpaceShooterGame-master\obj\Debug\SpaceShooterGame.Start.resources
+F:\visual studio\SpaceShooterGame-master\obj\Debug\SpaceShooterGame.Game.resources
+F:\visual studio\Space shooter\obj\Debug\SpaceShooterGame.csprojAssemblyReference.cache
+F:\visual studio\Space shooter\obj\Debug\SpaceShooterGame.Game.resources
+F:\visual studio\Space shooter\obj\Debug\SpaceShooterGame.Properties.Resources.resources
+F:\visual studio\Space shooter\obj\Debug\SpaceShooterGame.csproj.GenerateResource.cache
+F:\visual studio\Space shooter\obj\Debug\SpaceShooterGame.csproj.CoreCompileInputs.cache
+F:\visual studio\Space shooter\obj\Debug\SpaceShooterGame.exe
+F:\visual studio\Space shooter\obj\Debug\SpaceShooterGame.pdb
+F:\visual studio\Space shooter\bin\Debug\SpaceShooterGame.exe.config
+F:\visual studio\Space shooter\bin\Debug\SpaceShooterGame.exe
+F:\visual studio\Space shooter\bin\Debug\SpaceShooterGame.pdb
+F:\visual studio\Space shooter\bin\Debug\EntityFramework.dll
+F:\visual studio\Space shooter\bin\Debug\EntityFramework.SqlServer.dll
+F:\visual studio\Space shooter\bin\Debug\EntityFramework.xml
+F:\visual studio\Space shooter\bin\Debug\EntityFramework.SqlServer.xml
+F:\visual studio\Space shooter\bin\Debug\ru\EntityFramework.resources.dll
+F:\visual studio\Space shooter\obj\Debug\SpaceShooterGame.csproj.CopyComplete
+F:\visual studio\Space shooter\obj\Debug\SpaceShooterGame.Menu.resources
