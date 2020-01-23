@@ -55,7 +55,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Difficulty.cs" />
     <Compile Include="EntityModel\MyDbContext.cs" />
     <Compile Include="EntityModel\Player.cs" />
     <Compile Include="EntityModel\PlayerScore.cs" />
@@ -74,6 +73,12 @@
       <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
     <Compile Include="Missile.cs" />
+    <Compile Include="NameAndDiffChoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NameAndDiffChoice.Designer.cs">
+      <DependentUpon>NameAndDiffChoice.cs</DependentUpon>
+    </Compile>
     <Compile Include="Player.cs" />
     <Compile Include="PowerUp.cs" />
     <Compile Include="Program.cs" />
@@ -85,6 +90,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NameAndDiffChoice.resx">
+      <DependentUpon>NameAndDiffChoice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

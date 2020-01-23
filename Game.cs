@@ -12,9 +12,12 @@ namespace SpaceShooterGame
 {
     public partial class Game : Form
     {
-        public Game(string difficulty)
+        public Game(string difficulty, string playerName)
         {
             InitializeComponent();
+            label_name.Text = string.Format("Игрок: {0}", playerName);
+            label_diff.Text = string.Format("Сложность: {0}", difficulty);
+            SetVeryHard();
         }
 
         //+++++++++++++++ Global Variables +++++++++++++++++++++++++ //
@@ -39,6 +42,9 @@ namespace SpaceShooterGame
         int cannonCount = 3;
         int powerUPTimer = 900;
         int enemyDamage = 10;
+        int seconds = 0;
+        int minutes = 0;
+        int hours = 0;
 
         bool moveUp = false, moveDown = false, moveLeft = false, moveRight = false;
 
@@ -65,7 +71,7 @@ namespace SpaceShooterGame
             float yLocation = 40;
             for (int x = 0; x < xNumberOfFighters; x++)
             {
-                for (int y =0; y < yNumberOfFighters; y++)
+                for (int y = 0; y < yNumberOfFighters; y++)
                 {
                     fighter[x, y] = new Ship(x, y, 900, yLocation, 100, 10);
                     yLocation = yLocation + 50;
@@ -137,6 +143,31 @@ namespace SpaceShooterGame
                     deathStar.Remove(deathStar[i]);
                 }
             }          
+        }
+
+        // +++++++++++++++++++++ Функции для установки сложности ++++++++++++++++++++ //
+        private void SetEasy()
+        {
+            numberOfStarDistroyers = 4;
+            enemyDamage = 10;
+             
+        }
+        private void SetMedium()
+        {
+            numberOfStarDistroyers = 5;
+            enemyDamage = 20;            
+        }
+
+        private void SetHard()
+        {
+            numberOfStarDistroyers = 6;
+            enemyDamage = 25;             
+        }
+
+        private void SetVeryHard()
+        {
+            numberOfStarDistroyers = 7;
+            enemyDamage = 35;             
         }
 
         // ++++++++++++++++++++++ Функции отрисовки ++++++++++++++++++++++++++++++++++ //
@@ -234,6 +265,21 @@ namespace SpaceShooterGame
                 g.DrawImage(powerUp[x].picture, powerUp[x].x, powerUp[x].y, 50, 50);
             }
         }
+        private void drawPlayerInfo(bool showOrhide)
+        {
+            if (!showOrhide)
+            {
+                label_name.Hide();
+                label_diff.Hide();
+                label_timer.Hide();
+            }
+            else
+            {
+                label_name.Show();
+                label_diff.Show();
+                label_timer.Show();
+            }
+        }
 
         // ++++++++++++++++++ Клавиши управления +++++++++++++++++++++++++++++++++++++++++++++++ //
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -243,6 +289,17 @@ namespace SpaceShooterGame
             else if (e.KeyCode == Keys.A) moveLeft = true;
             else if (e.KeyCode == Keys.D) moveRight = true;
             if (e.KeyCode == Keys.Space) playerShipFireCannons = true;
+            if (e.KeyCode == Keys.Tab) drawPlayerInfo(true);
+
+            if(gameTimer.Enabled != true)
+            {
+                if(e.KeyCode == Keys.Enter)
+                {
+                    this.Hide();
+                    menu.Show();
+                }
+            }
+
         }
         private void Form1_KeyUp(object sender, KeyEventArgs e)
         {
@@ -251,6 +308,7 @@ namespace SpaceShooterGame
             else if (e.KeyCode == Keys.A) moveLeft = false;
             else if (e.KeyCode == Keys.D) moveRight = false;
             if (e.KeyCode == Keys.Space) playerShipFireCannons = false;
+            if (e.KeyCode == Keys.Tab) drawPlayerInfo(false);
         }
 
 
@@ -388,7 +446,7 @@ namespace SpaceShooterGame
                         playerShip.yGraphicLocation + 50 > starDistroyer[i].yGraphicLocation && starDistroyer[i].yGraphicLocation + 70 > playerShip.yGraphicLocation)
                 {
                     explotion.Add(new Explotion(playerShip.xGraphicLocation, playerShip.yGraphicLocation, 30, 30, 0));
-                    playerShip.shields = playerShip.shields - 10;
+                    playerShip.shields = playerShip.shields - 30;
                     timer = 0;
                     cannonCount--;
                     break;
@@ -401,8 +459,10 @@ namespace SpaceShooterGame
             if(playerShip.shields <= 0)
             {
                 gameTimer.Enabled = false;
-                menu.Show();
-                this.Hide();             
+                label_gameover.Show();
+                label_time_gameover.Show();
+                label_exit.Show();
+                timer_record.Enabled = false;
             }
         }
 
@@ -444,6 +504,11 @@ namespace SpaceShooterGame
             menu.Show();        
         }
 
+        private void label_time_gameover_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void checkPLayerShipWithStarDistroyerMissileColition()
         {
             for (int m = 0; m < SDmissiles.Count(); m++)
@@ -453,7 +518,7 @@ namespace SpaceShooterGame
                 {
                     timer = 0;
                     explotion.Add(new Explotion(playerShip.xGraphicLocation, playerShip.yGraphicLocation, 40, 40, 0));
-                    playerShip.shields = playerShip.shields - 25;
+                    playerShip.shields = playerShip.shields - enemyDamage + 10;
                     cannonCount--;
                     break;
                 }
@@ -500,6 +565,37 @@ namespace SpaceShooterGame
         }
 
         // ++++++++++++++++++++++++ Игровые таймеры +++++++++++++++++++++++++++++++++++++++ //
+        private void timer_record_Tick(object sender, EventArgs e)
+        {
+            string sec = seconds.ToString();
+            string min = minutes.ToString();
+            string h = hours.ToString();
+
+            if (seconds >= 60)
+            {               
+                seconds = 0;
+                sec = seconds.ToString();
+                minutes++;
+            }
+            if (minutes >= 60)
+            {              
+                minutes = 0;
+                min = minutes.ToString();
+                hours++;
+            }
+
+            if (seconds <= 9) sec = $"0{sec}";
+            else sec = seconds.ToString();
+            if (hours <= 9) h = $"0{h}";
+            else h = hours.ToString();
+            if (minutes <= 9) min = $"0{min}";
+            else min = minutes.ToString();
+
+            seconds++;
+            label_timer.Text = string.Format("{0}:{1}:{2}", h, min, sec);
+            label_time_gameover.Text = string.Format("{0}:{1}:{2}", h, min, sec);
+
+        }
         private void gameTimer_Tick(object sender, EventArgs e)
         {
             timer++;
@@ -597,9 +693,7 @@ namespace SpaceShooterGame
             {
                 deathStar.Add(new Ship(1, 1, 1000, 200, 2000, 10));
             }
-            
-
-          
+                     
         }
     }
 }

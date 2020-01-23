@@ -65,9 +65,9 @@ namespace SpaceShooterGame
 
         private void play_pic_Click(object sender, EventArgs e)
         {
+            var choice = new NameAndDiffChoice();
             this.Hide();
-            var game = new Game("hard");
-            game.Show();
+            choice.Show();         
         }
     }
 }
