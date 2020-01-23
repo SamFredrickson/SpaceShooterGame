@@ -77,6 +77,7 @@
             this.pic_records.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pic_records.TabIndex = 2;
             this.pic_records.TabStop = false;
+            this.pic_records.Click += new System.EventHandler(this.pic_records_Click);
             this.pic_records.MouseEnter += new System.EventHandler(this.pic_records_MouseEnter);
             this.pic_records.MouseLeave += new System.EventHandler(this.pic_records_MouseLeave);
             // 

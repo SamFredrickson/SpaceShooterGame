@@ -46,3 +46,4 @@ F:\visual studio\Space shooter\bin\Debug\ru\EntityFramework.resources.dll
 F:\visual studio\Space shooter\obj\Debug\SpaceShooterGame.csproj.CopyComplete
 F:\visual studio\Space shooter\obj\Debug\SpaceShooterGame.Menu.resources
 F:\visual studio\Space shooter\obj\Debug\SpaceShooterGame.NameAndDiffChoice.resources
+F:\visual studio\Space shooter\obj\Debug\SpaceShooterGame.Records.resources

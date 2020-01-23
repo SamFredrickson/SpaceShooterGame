@@ -69,5 +69,12 @@ namespace SpaceShooterGame
             this.Hide();
             choice.Show();         
         }
+
+        private void pic_records_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var records = new Records();
+            records.Show();
+        }
     }
 }

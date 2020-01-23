@@ -17,7 +17,7 @@ namespace SpaceShooterGame
             InitializeComponent();
             label_name.Text = string.Format("Игрок: {0}", playerName);
             label_diff.Text = string.Format("Сложность: {0}", difficulty);
-            SetVeryHard();
+            SetDiff(difficulty);
         }
 
         //+++++++++++++++ Global Variables +++++++++++++++++++++++++ //
@@ -167,7 +167,18 @@ namespace SpaceShooterGame
         private void SetVeryHard()
         {
             numberOfStarDistroyers = 7;
-            enemyDamage = 35;             
+            enemyDamage = 40;             
+        }
+
+        private void SetDiff(string diff)
+        {
+            switch (diff)
+            {
+                case "Легко": SetEasy(); break;
+                case "Средне": SetMedium(); break;
+                case "Тяжело": SetHard(); break;
+                case "Очень тяжело": SetVeryHard(); break;
+            }
         }
 
         // ++++++++++++++++++++++ Функции отрисовки ++++++++++++++++++++++++++++++++++ //
@@ -446,7 +457,7 @@ namespace SpaceShooterGame
                         playerShip.yGraphicLocation + 50 > starDistroyer[i].yGraphicLocation && starDistroyer[i].yGraphicLocation + 70 > playerShip.yGraphicLocation)
                 {
                     explotion.Add(new Explotion(playerShip.xGraphicLocation, playerShip.yGraphicLocation, 30, 30, 0));
-                    playerShip.shields = playerShip.shields - 30;
+                    playerShip.shields = playerShip.shields - 10;
                     timer = 0;
                     cannonCount--;
                     break;
@@ -518,7 +529,7 @@ namespace SpaceShooterGame
                 {
                     timer = 0;
                     explotion.Add(new Explotion(playerShip.xGraphicLocation, playerShip.yGraphicLocation, 40, 40, 0));
-                    playerShip.shields = playerShip.shields - enemyDamage + 10;
+                    playerShip.shields = playerShip.shields - (enemyDamage + 10);
                     cannonCount--;
                     break;
                 }
@@ -592,7 +603,7 @@ namespace SpaceShooterGame
             else min = minutes.ToString();
 
             seconds++;
-            label_timer.Text = string.Format("{0}:{1}:{2}", h, min, sec);
+            label_timer.Text = string.Format("Время: {0}:{1}:{2}", h, min, sec);
             label_time_gameover.Text = string.Format("{0}:{1}:{2}", h, min, sec);
 
         }
