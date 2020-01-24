@@ -18,6 +18,8 @@ namespace SpaceShooterGame
             label_name.Text = string.Format("Игрок: {0}", playerName);
             label_diff.Text = string.Format("Сложность: {0}", difficulty);
             SetDiff(difficulty);
+            _difficulty = difficulty;
+            _playername = playerName;
         }
 
         //+++++++++++++++ Global Variables +++++++++++++++++++++++++ //
@@ -45,6 +47,8 @@ namespace SpaceShooterGame
         int seconds = 0;
         int minutes = 0;
         int hours = 0;
+        string _difficulty;
+        string _playername;
 
         bool moveUp = false, moveDown = false, moveLeft = false, moveRight = false;
 
@@ -474,6 +478,7 @@ namespace SpaceShooterGame
                 label_time_gameover.Show();
                 label_exit.Show();
                 timer_record.Enabled = false;
+
             }
         }
 

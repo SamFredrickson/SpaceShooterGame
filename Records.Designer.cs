@@ -35,7 +35,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Records));
             this.data = new System.Windows.Forms.DataGridView();
             this.btn_back = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.combo_choice = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.data)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,24 +80,43 @@
             // 
             // btn_back
             // 
+            this.btn_back.FlatAppearance.BorderSize = 0;
             this.btn_back.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btn_back.Location = new System.Drawing.Point(12, 359);
+            this.btn_back.Location = new System.Drawing.Point(12, 354);
             this.btn_back.Name = "btn_back";
-            this.btn_back.Size = new System.Drawing.Size(275, 61);
+            this.btn_back.Size = new System.Drawing.Size(241, 34);
             this.btn_back.TabIndex = 1;
             this.btn_back.Text = "Назад";
             this.btn_back.UseVisualStyleBackColor = true;
             this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
             // 
-            // button1
+            // button2
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(534, 359);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(275, 61);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Фильтры";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button2.Location = new System.Drawing.Point(573, 354);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(236, 34);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "Отфильтровать";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // combo_choice
+            // 
+            this.combo_choice.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.combo_choice.FormattingEnabled = true;
+            this.combo_choice.Items.AddRange(new object[] {
+            "Все",
+            "Только легкие",
+            "Только средние",
+            "Только сложные",
+            "Только очень сложные"});
+            this.combo_choice.Location = new System.Drawing.Point(273, 355);
+            this.combo_choice.Name = "combo_choice";
+            this.combo_choice.Size = new System.Drawing.Size(281, 33);
+            this.combo_choice.TabIndex = 4;
+            this.combo_choice.Text = "Все";
             // 
             // Records
             // 
@@ -105,7 +125,8 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(821, 432);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.combo_choice);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.btn_back);
             this.Controls.Add(this.data);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -123,6 +144,7 @@
 
         private System.Windows.Forms.DataGridView data;
         private System.Windows.Forms.Button btn_back;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ComboBox combo_choice;
     }
 }
