@@ -37,6 +37,8 @@
             this.btn_back = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.combo_choice = new System.Windows.Forms.ComboBox();
+            this.search_btn = new System.Windows.Forms.Button();
+            this.text_name = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.data)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,9 +84,9 @@
             // 
             this.btn_back.FlatAppearance.BorderSize = 0;
             this.btn_back.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btn_back.Location = new System.Drawing.Point(12, 354);
+            this.btn_back.Location = new System.Drawing.Point(12, 330);
             this.btn_back.Name = "btn_back";
-            this.btn_back.Size = new System.Drawing.Size(241, 34);
+            this.btn_back.Size = new System.Drawing.Size(241, 87);
             this.btn_back.TabIndex = 1;
             this.btn_back.Text = "Назад";
             this.btn_back.UseVisualStyleBackColor = true;
@@ -94,7 +96,7 @@
             // 
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button2.Location = new System.Drawing.Point(573, 354);
+            this.button2.Location = new System.Drawing.Point(573, 329);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(236, 34);
             this.button2.TabIndex = 3;
@@ -112,11 +114,31 @@
             "Только средние",
             "Только сложные",
             "Только очень сложные"});
-            this.combo_choice.Location = new System.Drawing.Point(273, 355);
+            this.combo_choice.Location = new System.Drawing.Point(273, 330);
             this.combo_choice.Name = "combo_choice";
             this.combo_choice.Size = new System.Drawing.Size(281, 33);
             this.combo_choice.TabIndex = 4;
             this.combo_choice.Text = "Все";
+            // 
+            // search_btn
+            // 
+            this.search_btn.FlatAppearance.BorderSize = 0;
+            this.search_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.search_btn.Location = new System.Drawing.Point(573, 383);
+            this.search_btn.Name = "search_btn";
+            this.search_btn.Size = new System.Drawing.Size(236, 37);
+            this.search_btn.TabIndex = 5;
+            this.search_btn.Text = "Найти игрока";
+            this.search_btn.UseVisualStyleBackColor = true;
+            this.search_btn.Click += new System.EventHandler(this.search_btn_Click);
+            // 
+            // text_name
+            // 
+            this.text_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.text_name.Location = new System.Drawing.Point(273, 385);
+            this.text_name.Name = "text_name";
+            this.text_name.Size = new System.Drawing.Size(281, 32);
+            this.text_name.TabIndex = 6;
             // 
             // Records
             // 
@@ -125,6 +147,8 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(821, 432);
+            this.Controls.Add(this.text_name);
+            this.Controls.Add(this.search_btn);
             this.Controls.Add(this.combo_choice);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btn_back);
@@ -137,6 +161,7 @@
             this.Load += new System.EventHandler(this.Records_Load);
             ((System.ComponentModel.ISupportInitialize)(this.data)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -146,5 +171,7 @@
         private System.Windows.Forms.Button btn_back;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ComboBox combo_choice;
+        private System.Windows.Forms.Button search_btn;
+        private System.Windows.Forms.TextBox text_name;
     }
 }

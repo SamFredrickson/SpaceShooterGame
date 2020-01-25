@@ -91,6 +91,7 @@
             this.about_pic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.about_pic.TabIndex = 3;
             this.about_pic.TabStop = false;
+            this.about_pic.Click += new System.EventHandler(this.about_pic_Click);
             this.about_pic.MouseEnter += new System.EventHandler(this.about_pic_MouseEnter);
             this.about_pic.MouseLeave += new System.EventHandler(this.about_pic_MouseLeave);
             // 

@@ -76,5 +76,10 @@ namespace SpaceShooterGame
             var records = new Records();
             records.Show();
         }
+
+        private void about_pic_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, "Help.chm");
+        }
     }
 }

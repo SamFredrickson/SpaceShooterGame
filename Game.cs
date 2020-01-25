@@ -49,6 +49,7 @@ namespace SpaceShooterGame
         int hours = 0;
         string _difficulty;
         string _playername;
+        DataManager dm = new DataManager();
 
         bool moveUp = false, moveDown = false, moveLeft = false, moveRight = false;
 
@@ -479,6 +480,7 @@ namespace SpaceShooterGame
                 label_exit.Show();
                 timer_record.Enabled = false;
 
+                dm.Add(_playername, _difficulty, seconds, minutes, hours);
             }
         }
 
@@ -643,7 +645,7 @@ namespace SpaceShooterGame
                 playerShip.yGraphicLocation = playerShip.yGraphicLocation - 10;
                 drawPlayerShip(1);
             }
-            if (moveDown == true && playerShip.yGraphicLocation < 450)
+            if (moveDown == true && playerShip.yGraphicLocation < 500)
             {
                 g.FillRectangle(black, playerShip.xGraphicLocation, playerShip.yGraphicLocation, 50, 50);
                 playerShip.yGraphicLocation = playerShip.yGraphicLocation + 10;

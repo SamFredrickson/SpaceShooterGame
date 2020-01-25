@@ -74,5 +74,113 @@ namespace SpaceShooterGame
             }
         }
 
+        private void AddRecordOfExistedPlayer(string playerName, string diff, int sec, int min, int h)
+        {
+            using (var ctx = new MyDbContext())
+            {
+                var player_id = ctx.Player.Select(s => s)
+                        .Where(i => i.name == playerName)
+                        .First();
+
+                var score = new Score
+                {
+                    difficulty = diff,
+                    seconds = sec,
+                    minutes = min,
+                    hours = h
+                };
+
+                ctx.Score.Add(score);
+                ctx.SaveChanges();
+
+                var score_id = ctx.Score
+                     .Select(s => s.id).Max();
+
+                var playerScore = new PlayerScore
+                {
+                    id_player = player_id.id,
+                    id_score = score_id
+                };
+
+                ctx.PlayerScore.Add(playerScore);
+                ctx.SaveChanges();
+            }
+        }
+
+        private void AddRecordOfNotExistingPlayer(string playerName, string diff, int sec, int min, int h)
+        {
+            using (var ctx = new MyDbContext())
+            {
+                var player = new EntityModel.Player
+                {
+                    name = playerName
+                };
+
+                ctx.Player.Add(player);
+                ctx.SaveChanges();
+
+                var player_id = ctx.Player
+                    .Select(s => s.id).Max();
+
+
+                var score = new Score
+                {
+                    difficulty = diff,
+                    seconds = sec,
+                    minutes = min,
+                    hours = h
+                };
+
+                ctx.Score.Add(score);
+                ctx.SaveChanges();
+
+                var score_id = ctx.Score
+                     .Select(s => s.id).Max();
+
+                var playerScore = new PlayerScore
+                {
+                    id_player = player_id,
+                    id_score = score_id
+                };
+
+                ctx.PlayerScore.Add(playerScore);
+                ctx.SaveChanges();
+            }
+        }
+
+        public void Add(string playerName, string diff, int sec, int min, int h)
+        {
+            using (var ctx = new MyDbContext())
+            {
+                var IsPlayerExist = ctx.Player
+                    .Select(s => s)
+                    .Any(n => n.name == playerName);
+
+                if (
+IsPlayerExist)
+                    AddRecordOfExistedPlayer(playerName, diff, sec, min, h);
+                else AddRecordOfNotExistingPlayer(playerName, diff, sec, min, h);
+            }
+        }
+
+        public void Search(string playerName, DataGridView data)
+        {
+            using (var ctx = new MyDbContext())
+            {
+                var all = (from ps in ctx.PlayerScore
+                           join p in ctx.Player on ps.id_player equals p.id
+                           join s in ctx.Score on ps.id_score equals s.id
+                           where p.name == playerName
+                           select new
+                           {
+                               Имя = p.name,
+                               Рекорд = s.hours + " часов, " + s.minutes + " минут, " + s.seconds + " секунд",
+                               Сложность = s.difficulty
+
+                           }).ToList();
+
+                data.DataSource = all;
+            }
+        }
     }
 }
