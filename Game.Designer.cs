@@ -31,13 +31,14 @@
             this.components = new System.ComponentModel.Container();
             this.gameTimer = new System.Windows.Forms.Timer(this.components);
             this.pnlGameBoard = new System.Windows.Forms.Panel();
+            this.label_exit = new System.Windows.Forms.Label();
             this.label_timer = new System.Windows.Forms.Label();
             this.label_diff = new System.Windows.Forms.Label();
             this.label_name = new System.Windows.Forms.Label();
             this.label_time_gameover = new System.Windows.Forms.Label();
             this.label_gameover = new System.Windows.Forms.Label();
             this.timer_record = new System.Windows.Forms.Timer(this.components);
-            this.label_exit = new System.Windows.Forms.Label();
+            this.label_pause_game = new System.Windows.Forms.Label();
             this.pnlGameBoard.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,6 +50,7 @@
             // pnlGameBoard
             // 
             this.pnlGameBoard.BackColor = System.Drawing.Color.Black;
+            this.pnlGameBoard.Controls.Add(this.label_pause_game);
             this.pnlGameBoard.Controls.Add(this.label_exit);
             this.pnlGameBoard.Controls.Add(this.label_timer);
             this.pnlGameBoard.Controls.Add(this.label_diff);
@@ -59,6 +61,18 @@
             this.pnlGameBoard.Name = "pnlGameBoard";
             this.pnlGameBoard.Size = new System.Drawing.Size(1024, 574);
             this.pnlGameBoard.TabIndex = 0;
+            // 
+            // label_exit
+            // 
+            this.label_exit.AutoSize = true;
+            this.label_exit.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_exit.ForeColor = System.Drawing.Color.White;
+            this.label_exit.Location = new System.Drawing.Point(192, 504);
+            this.label_exit.Name = "label_exit";
+            this.label_exit.Size = new System.Drawing.Size(662, 46);
+            this.label_exit.TabIndex = 5;
+            this.label_exit.Text = "Нажмите Enter чтобы продолжить";
+            this.label_exit.Visible = false;
             // 
             // label_timer
             // 
@@ -127,17 +141,17 @@
             this.timer_record.Interval = 1000;
             this.timer_record.Tick += new System.EventHandler(this.timer_record_Tick);
             // 
-            // label_exit
+            // label_pause_game
             // 
-            this.label_exit.AutoSize = true;
-            this.label_exit.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label_exit.ForeColor = System.Drawing.Color.White;
-            this.label_exit.Location = new System.Drawing.Point(192, 504);
-            this.label_exit.Name = "label_exit";
-            this.label_exit.Size = new System.Drawing.Size(662, 46);
-            this.label_exit.TabIndex = 5;
-            this.label_exit.Text = "Нажмите Enter чтобы продолжить";
-            this.label_exit.Visible = false;
+            this.label_pause_game.AutoSize = true;
+            this.label_pause_game.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_pause_game.ForeColor = System.Drawing.Color.Red;
+            this.label_pause_game.Location = new System.Drawing.Point(371, 249);
+            this.label_pause_game.Name = "label_pause_game";
+            this.label_pause_game.Size = new System.Drawing.Size(306, 46);
+            this.label_pause_game.TabIndex = 6;
+            this.label_pause_game.Text = "Игра на паузе!";
+            this.label_pause_game.Visible = false;
             // 
             // Game
             // 
@@ -171,6 +185,7 @@
         private System.Windows.Forms.Label label_timer;
         private System.Windows.Forms.Timer timer_record;
         private System.Windows.Forms.Label label_exit;
+        private System.Windows.Forms.Label label_pause_game;
     }
 }
 

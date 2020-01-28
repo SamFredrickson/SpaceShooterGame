@@ -51,7 +51,7 @@ namespace SpaceShooterGame
         string _playername;
         DataManager dm = new DataManager();
 
-        bool moveUp = false, moveDown = false, moveLeft = false, moveRight = false;
+        bool moveUp = false, moveDown = false, moveLeft = false, moveRight = false, isPause = false;
 
         Bitmap fighterOne = new Bitmap("Resources/Fighter1.png");
         Bitmap fighterTwo = new Bitmap("Resources/Fighter2.png");
@@ -296,6 +296,29 @@ namespace SpaceShooterGame
                 label_timer.Show();
             }
         }
+        private void drawPlayerPause(bool isESC)
+        {
+            if (isESC)
+            {
+                label_name.Hide();
+                label_diff.Hide();
+                label_timer.Hide();
+                label_pause_game.Hide();
+                gameTimer.Enabled = true;
+                timer_record.Enabled = true;
+                isPause = false;
+            }
+            else
+            {
+                label_name.Show();
+                label_diff.Show();
+                label_timer.Show();
+                label_pause_game.Show();
+                gameTimer.Enabled = false;
+                timer_record.Enabled = false;
+                isPause = true;
+            }
+        }
 
         // ++++++++++++++++++ Клавиши управления +++++++++++++++++++++++++++++++++++++++++++++++ //
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -306,6 +329,7 @@ namespace SpaceShooterGame
             else if (e.KeyCode == Keys.D) moveRight = true;
             if (e.KeyCode == Keys.Space) playerShipFireCannons = true;
             if (e.KeyCode == Keys.Tab) drawPlayerInfo(true);
+            if (e.KeyCode == Keys.Escape) drawPlayerPause(isPause);
 
             if(gameTimer.Enabled != true)
             {

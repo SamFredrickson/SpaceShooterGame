@@ -17,6 +17,7 @@ namespace SpaceShooterGame
                 var all = (from ps in ctx.PlayerScore
                            join p in ctx.Player on ps.id_player equals p.id
                            join s in ctx.Score on ps.id_score equals s.id
+                           orderby s.seconds + s.minutes + s.hours descending
                            select new
                            {
                                Имя = p.name,
@@ -61,6 +62,7 @@ namespace SpaceShooterGame
                                join p in ctx.Player on ps.id_player equals p.id
                                join s in ctx.Score on ps.id_score equals s.id
                                where s.difficulty == choice
+                               orderby s.seconds + s.minutes + s.hours descending
                                select new
                                {
                                    Имя = p.name,
@@ -171,6 +173,7 @@ IsPlayerExist)
                            join p in ctx.Player on ps.id_player equals p.id
                            join s in ctx.Score on ps.id_score equals s.id
                            where p.name == playerName
+                           orderby s.seconds + s.minutes + s.hours descending
                            select new
                            {
                                Имя = p.name,
