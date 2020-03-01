@@ -29,8 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Game));
             this.gameTimer = new System.Windows.Forms.Timer(this.components);
             this.pnlGameBoard = new System.Windows.Forms.Panel();
+            this.label_pause_game = new System.Windows.Forms.Label();
             this.label_exit = new System.Windows.Forms.Label();
             this.label_timer = new System.Windows.Forms.Label();
             this.label_diff = new System.Windows.Forms.Label();
@@ -38,8 +40,9 @@
             this.label_time_gameover = new System.Windows.Forms.Label();
             this.label_gameover = new System.Windows.Forms.Label();
             this.timer_record = new System.Windows.Forms.Timer(this.components);
-            this.label_pause_game = new System.Windows.Forms.Label();
+            this.sound_on = new System.Windows.Forms.PictureBox();
             this.pnlGameBoard.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sound_on)).BeginInit();
             this.SuspendLayout();
             // 
             // gameTimer
@@ -50,6 +53,7 @@
             // pnlGameBoard
             // 
             this.pnlGameBoard.BackColor = System.Drawing.Color.Black;
+            this.pnlGameBoard.Controls.Add(this.sound_on);
             this.pnlGameBoard.Controls.Add(this.label_pause_game);
             this.pnlGameBoard.Controls.Add(this.label_exit);
             this.pnlGameBoard.Controls.Add(this.label_timer);
@@ -61,6 +65,18 @@
             this.pnlGameBoard.Name = "pnlGameBoard";
             this.pnlGameBoard.Size = new System.Drawing.Size(1024, 574);
             this.pnlGameBoard.TabIndex = 0;
+            // 
+            // label_pause_game
+            // 
+            this.label_pause_game.AutoSize = true;
+            this.label_pause_game.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_pause_game.ForeColor = System.Drawing.Color.Red;
+            this.label_pause_game.Location = new System.Drawing.Point(371, 249);
+            this.label_pause_game.Name = "label_pause_game";
+            this.label_pause_game.Size = new System.Drawing.Size(306, 46);
+            this.label_pause_game.TabIndex = 6;
+            this.label_pause_game.Text = "Игра на паузе!";
+            this.label_pause_game.Visible = false;
             // 
             // label_exit
             // 
@@ -141,17 +157,16 @@
             this.timer_record.Interval = 1000;
             this.timer_record.Tick += new System.EventHandler(this.timer_record_Tick);
             // 
-            // label_pause_game
+            // sound_on
             // 
-            this.label_pause_game.AutoSize = true;
-            this.label_pause_game.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label_pause_game.ForeColor = System.Drawing.Color.Red;
-            this.label_pause_game.Location = new System.Drawing.Point(371, 249);
-            this.label_pause_game.Name = "label_pause_game";
-            this.label_pause_game.Size = new System.Drawing.Size(306, 46);
-            this.label_pause_game.TabIndex = 6;
-            this.label_pause_game.Text = "Игра на паузе!";
-            this.label_pause_game.Visible = false;
+            this.sound_on.Image = ((System.Drawing.Image)(resources.GetObject("sound_on.Image")));
+            this.sound_on.Location = new System.Drawing.Point(971, 9);
+            this.sound_on.Name = "sound_on";
+            this.sound_on.Size = new System.Drawing.Size(44, 41);
+            this.sound_on.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.sound_on.TabIndex = 7;
+            this.sound_on.TabStop = false;
+            this.sound_on.Click += new System.EventHandler(this.sound_on_Click);
             // 
             // Game
             // 
@@ -170,6 +185,7 @@
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
             this.pnlGameBoard.ResumeLayout(false);
             this.pnlGameBoard.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sound_on)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -186,6 +202,7 @@
         private System.Windows.Forms.Timer timer_record;
         private System.Windows.Forms.Label label_exit;
         private System.Windows.Forms.Label label_pause_game;
+        private System.Windows.Forms.PictureBox sound_on;
     }
 }
 

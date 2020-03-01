@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -50,6 +51,8 @@ namespace SpaceShooterGame
         string _difficulty;
         string _playername;
         DataManager dm = new DataManager();
+        SoundPlayer sound = new SoundPlayer(@"Sounds\music.wav");
+        bool isSoundon = true;
 
         bool moveUp = false, moveDown = false, moveLeft = false, moveRight = false, isPause = false;
 
@@ -335,6 +338,7 @@ namespace SpaceShooterGame
             {
                 if(e.KeyCode == Keys.Enter)
                 {
+                    sound.Stop();
                     this.Hide();
                     menu.Show();
                 }
@@ -539,16 +543,35 @@ namespace SpaceShooterGame
             gameTimer.Enabled = true;
             buildFighters();
             buildStarDistroyers();
+            sound.PlayLooping();
         }
 
         private void Game_FormClosed(object sender, FormClosedEventArgs e)
         {
+            sound.Stop();
             menu.Show();        
         }
 
         private void label_time_gameover_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void sound_on_Click(object sender, EventArgs e)
+        {
+            if (!isSoundon)
+            {
+                sound_on.Load(@"Resources/buttons/sound_on.png");
+                sound.PlayLooping();
+                isSoundon = true;
+            }
+            else
+            {
+                sound_on.Load(@"Resources/buttons/sound_off.png");
+                sound.Stop();
+                isSoundon = false;
+            }
+      
         }
 
         private void checkPLayerShipWithStarDistroyerMissileColition()
